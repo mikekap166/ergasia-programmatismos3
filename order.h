@@ -4,7 +4,7 @@
 typedef struct {
 	int requests;
 	int sold;
-	int canceled;
+	int canceled[5];
 } order;
 
 #endif // ORDER_H

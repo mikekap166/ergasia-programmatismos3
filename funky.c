@@ -14,8 +14,7 @@ int funky(Product products[], order orders[], int i) {
         orders[i].sold += 1;         
         return 0;  
     } else {
-        orders[i].requests += 1;      
-        orders[i].canceled += 1;     
+        orders[i].requests += 1;          
         return 1;
     }
 }

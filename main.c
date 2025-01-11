@@ -10,7 +10,7 @@
 
 void main() {
 	pid_t pid ;
-	int i, k;
+	int i,k,b;
 	
 	int CP1[2], CP2[2], CP3[2], CP4[2], CP5[2];// 'C'Child to 'P'Parent pipe
 	
@@ -60,7 +60,9 @@ void main() {
 	for (i =0 ; i<10; i++){
                 array2[i].requests=0;
 		array2[i].sold=0;
-		array2[i].canceled=0;
+		for(k=0;k<5;k++){
+		  array2[i].canceled[k]=0;
+		}
         }
 	pid=fork(); // first child's birth
 	if (pid>0){
@@ -172,6 +174,7 @@ void main() {
 	          char ch='N';
 	          close(PC1[0]);
 	          j=0;
+	          array2[t].canceled[0]=1;
 	          write(PC1[1], &ch, sizeof(char));
 	          canceled+=1; 
 	          printf("Client 1: Products unavailable sorry have a nice day. Request Denied!!!!\n" );
@@ -202,6 +205,7 @@ void main() {
 	          char ch='N';
 	          close(PC2[0]);
 	          j=0;
+	          array2[t].canceled[1]=1;
 	          write(PC2[1], &ch, sizeof(char));
 	          canceled+=1; 
 	          printf("Client 2: Products unavailable sorry have a nice day. Request Denied!!!!\n" );
@@ -232,6 +236,7 @@ void main() {
 	          char ch='N';
 	          close(PC3[0]);
 	          j=0;
+	          array2[t].canceled[2]=1;
 	          write(PC3[1], &ch, sizeof(char));
 	          canceled+=1; 
 	          printf("Client 3: Products unavailable sorry have a nice day. Request Denied!!!!\n" );
@@ -262,6 +267,7 @@ void main() {
 	          char ch='N';
 	          close(PC4[0]);
 	          j=0;
+	          array2[t].canceled[3]=1;
 	          write(PC4[1], &ch, sizeof(char));
 	          canceled+=1; 
 	          printf("Client 4: Products unavailable sorry have a nice day. Request Denied!!!!\n" );
@@ -292,6 +298,7 @@ void main() {
 	          char ch='N';
 	          close(PC5[0]);
 	          j=0;
+	          array2[t].canceled[4]=1;
 	          write(PC5[1], &ch, sizeof(char));
 	          canceled+=1; 
 	          printf("Client 5: Products unavailable sorry have a nice day. Request Denied!!!!\n" );
@@ -305,11 +312,22 @@ void main() {
 	                                      /// FINAL REPORT ///
 	    waitpid(-1, NULL, 0);
 	    for(t=0;t<10;t++){
-	      printf("\n\n\n%d.The item with the description %s had:\n",t,array1[t].desc);
+	      b=0;
+	      printf("\n\n\n%d.The item with the description %s had:\n",t+1,array1[t].desc);
 	      printf("%d requests for purchase \n",array2[t].requests);
 	      printf("%d sales\n",array2[t].sold);
-	      printf("%d requests not served",array2[t].canceled);
+	      printf("the clients that could not be served are:\n"); 
+	      for(k=0;k<5;k++){
+	        if(array2[t].canceled[k]==1){
+	          printf(" Client %d\n",k+1);
+	        }else 
+	          b= b+1;
+	      }
+	      if(b==5){
+	        printf("None");
+	      }
 	    }
+	    
 	    printf("\n\n\nTotal Orders were: %d\n", orders);
 	    printf("Total Completed Orders were: %d\n", completed);
 	    printf("Total Canceled Orders were: %d\n", canceled);
