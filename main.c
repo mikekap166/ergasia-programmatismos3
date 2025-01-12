@@ -75,7 +75,7 @@ void main() {
 		close(CP1[0]);
 	        write(CP1[1], &i, sizeof(int));
 	        close(PC1[1]);
-	        read(PC1[0], &i, 4);
+	        read(PC1[0], &a, 1);
 	        sleep(1);
 	      }  
 	      exit(1);
@@ -91,7 +91,7 @@ void main() {
 		close(CP2[0]);
 	        write(CP2[1], &i, sizeof(int));
 	        close(PC2[1]);
-	        read(PC2[0], &i, 4);
+	        read(PC2[0], &a, 1);
 	        sleep(1);
 	      }  
 	      exit(1);
@@ -106,7 +106,7 @@ void main() {
 		close(CP3[0]);
 	        write(CP3[1], &i, sizeof(int));
 	        close(PC3[1]);
-	        read(PC3[0], &i, 4);
+	        read(PC3[0], &a, 1);
 	        sleep(1);
 	      }  
 	      exit(1);
@@ -121,7 +121,7 @@ void main() {
 		close(CP4[0]);
 	        write(CP4[1], &i, sizeof(int));
 	        close(PC4[1]);
-	        read(PC4[0], &i, 4);
+	        read(PC4[0], &a, 1);
 	        sleep(1);
 	      }  
 	      exit(1);
@@ -136,7 +136,7 @@ void main() {
 		close(CP5[0]);
 	        write(CP5[1], &i, sizeof(int));
 	        close(PC5[1]);
-	        read(PC5[0], &i, 4);
+	        read(PC5[0], &a, 1);
 	        sleep(1);
 	      }  
 	      exit(1);
