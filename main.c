@@ -62,7 +62,7 @@ void main() {
 	array1[6].price=2350;
 	array1[7].price=350;
 	array1[8].price=750;
-	array1[9].price=80;
+	array1[9].price=75;
 
 	//Initialization of item count for each product to 2 in array1
 	for (i =0 ; i<10; i++){
