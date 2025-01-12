@@ -87,6 +87,7 @@ void main() {
               for(k=0; k<10; k++){
 	        close(PC2[1]); // second child's process
 	        read(PC2[0], &i, sizeof(int));
+		rand();
 	        i=0 + rand() % 10 ;
 		close(CP2[0]);
 	        write(CP2[1], &i, sizeof(int));
@@ -102,6 +103,8 @@ void main() {
               for(k=0; k<10; k++){
 	        close(PC3[1]);  // third child's process
 	        read(PC3[0], &i, sizeof(int));
+		rand();
+		rand();
 	        i=0 + rand() % 10 ;
 		close(CP3[0]);
 	        write(CP3[1], &i, sizeof(int));
@@ -117,6 +120,9 @@ void main() {
               for(k=0; k<10; k++){
 	        close(PC4[1]); // fourth child's process
 	        read(PC4[0], &i, sizeof(int));
+		rand();
+		rand();
+		rand();
 	        i=0 + rand() % 10 ;
 		close(CP4[0]);
 	        write(CP4[1], &i, sizeof(int));
@@ -132,6 +138,10 @@ void main() {
               for(k=0; k<10; k++){
 	        close(PC5[1]); // fifth child's process
 	        read(PC5[0], &i, sizeof(int));
+		rand();
+		rand();
+		rand();
+		rand();
 	        i=0 + rand() % 10 ;
 		close(CP5[0]);
 	        write(CP5[1], &i, sizeof(int));
