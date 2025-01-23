@@ -4,8 +4,8 @@
 typedef struct {
 	int requests;
 	int sold;
-	int canceled;
-} order;
+	int canceled[5];
+} Order;
 
 #endif // ORDER_H
 

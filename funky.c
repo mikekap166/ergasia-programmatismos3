@@ -2,12 +2,12 @@
 
 #include <stdio.h>
 #include "Product.h"
-#include "order.h"
+#include "Order.h"
 #include <string.h>
 #include <stdlib.h>
 
 
-int funky(Product products[], order orders[], int i) {
+int funky(Product products[], Order orders[], int i) {
     if (products[i].item_count > 0) { 
         products[i].item_count -= 1;   
         orders[i].requests += 1;      
